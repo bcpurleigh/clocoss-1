@@ -60,4 +60,4 @@ echo "Server removed!";
 
 echo "Killing workers...";
 
-yes y Y | gcloud compute instances delete `seq -f 'bens-worker-%g' 1 $vms`;
+gcloud compute instances delete `seq -f 'bens-worker-%g' 1 $vms`;
