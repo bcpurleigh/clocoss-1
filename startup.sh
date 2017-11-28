@@ -33,12 +33,13 @@ vms=$1;
 echo "The number of worker VMs to create is $vms";
 
 # set google cloud server location
+echo "setting zone";
 gcloud config set compute/zone europe-west1-d;
 
 # get external ip
 externalIP=`curl -s -H "Metadata-Flavor: Google"  \
    "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip"`;
-
+echo "External IP is $externalIP";
 
 # create vms
 gcloud compute instances create  \
@@ -47,8 +48,16 @@ gcloud compute instances create  \
 --metadata key=$key,ip=$externalIP  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
-`seq -f 'ben-worker-%g' 1 $vms`;
+`seq -f 'bens-worker-%g' 1 $vms`;
 
+echo "Starting server";
+npm run server $key;
 
+echo "Removing server code...";
+cd ..;
+sudo rm clocoss-master-worker -r;
+echo "Server removed!";
 
-# gcloud compute instances delete `seq -f 'ben-worker-%g' 1 $vms`;
+echo "Killing workers...";
+
+yes y Y | gcloud compute instances delete `seq -f 'bens-worker-%g' 1 $vms`;
