@@ -32,11 +32,6 @@ echo "The secret key is $key, don't tell anyone!";
 vms=$1;
 echo "The number of worker VMs to create is $vms";
 
-# get server code from Git
-git clone https://github.com/portsoc/clocoss-master-worker;
-cd clocoss-master-worker;
-npm install;
-
 # set google cloud server location
 gcloud config set compute/zone europe-west1-d;
 
@@ -51,7 +46,7 @@ gcloud compute instances create  \
 --tags http-server,https-server  \
 --metadata key=$key,ip=$externalIP  \
 --metadata-from-file  \
-          startup-script=startup-script.sh  \
+          startup-script=../startup-script.sh  \
 `seq -f 'ben-worker-%g' 1 $vms`;
 
 
