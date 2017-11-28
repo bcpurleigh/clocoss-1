@@ -48,7 +48,7 @@ gcloud compute instances create  \
 --metadata key=$key,ip=$externalIP  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
-`seq -f 'bens-worker-%g' 1 $vms`;
+`seq -f 'ben-worker-%g' 1 $vms`;
 
 echo "Starting server";
 npm run server $key;
@@ -60,4 +60,4 @@ echo "Server removed!";
 
 echo "Killing workers...";
 
-gcloud compute instances delete `seq -f 'bens-worker-%g' 1 $vms`;
+gcloud compute instances delete `seq -f 'ben-worker-%g' 1 $vms`;
