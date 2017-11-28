@@ -4,10 +4,7 @@
 # startup.sh numOfVms
 echo "Script Started!";
 
-# Get root up in here
-sudo su;
-
-echo "sudo ran";
+echo "i figured out how to run two lines!";
 
 #install git
 sudo apt-get install git;
