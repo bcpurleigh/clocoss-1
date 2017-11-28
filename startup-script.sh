@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #install git
-sudo apt-get install git
+sudo apt-get install git;
 
 # Change to what ever version you want here see link to versions below
 sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-echo "Node is installed".
+echo "Node is installed";
 
 # install worker git code
 git clone https://github.com/portsoc/clocoss-master-worker
