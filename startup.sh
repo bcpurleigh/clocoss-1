@@ -3,18 +3,6 @@
 
 vms=$1
 
-if [ -z "$vms" ]
-then
-        echo "Please provide a number as a parameter."
-        exit;
-fi
-
-if ! [[ "$vms" =~ ^[0-9]+$ ]]
-then
-        echo "The provided parameter must be an integer";
-        exit;
-fi
-
 # Get root up in here
 sudo su
 
