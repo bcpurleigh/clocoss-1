@@ -55,4 +55,4 @@ gcloud compute instances create  \
 
 
 
-gcloud compute instances delete `seq -f 'ben-worker-%g' 1 $vms`;
+# gcloud compute instances delete `seq -f 'ben-worker-%g' 1 $vms`;
