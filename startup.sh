@@ -50,7 +50,7 @@ gcloud compute instances create  \
 --machine-type f1-micro  \
 --tags http-server,https-server  \
 --metadata key=$key,ip=$externalIP  \
---metadata-from-file startup-script=startup-script.sh  \
+--metadata-from-file startup-script=../startup-script.sh  \
 `seq -f 'ben-worker-%g' 1 $vms`;
 
 
