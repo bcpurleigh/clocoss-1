@@ -1,3 +1,5 @@
+#!/bin/bash
+
 
 # startup.sh numOfVms
 echo "Script Started!"
