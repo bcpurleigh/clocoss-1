@@ -1,5 +1,4 @@
 # Get root up in here
-sudo su
 
 #install git
 sudo apt-get install git
