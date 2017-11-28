@@ -1,7 +1,6 @@
 
 # startup.sh numOfVms
-
-vms=$1
+echo "Script Started!"
 
 # Get root up in here
 sudo su
@@ -13,7 +12,7 @@ sudo apt-get install git
 sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-echo "Node is installed".
+echo "Node is installed"
 
 # install worker git code
 git clone https://github.com/portsoc/clocoss-master-worker
@@ -25,7 +24,7 @@ key=`openssl rand -base64 32`
 echo "The secret key is $key, don't tell anyone!"
 
 # get number of number of VMs
-
+vms=$1
 echo "The number of worker VMs to create is $vms"
 
 # get server code from Git
