@@ -1,4 +1,4 @@
-# Get root up in here
+#!/bin/bash
 
 #install git
 sudo apt-get install git
