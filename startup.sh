@@ -67,7 +67,7 @@ gcloud compute instances create  \
 --metadata key=$key,ip=$externalIP  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
-`seq -f 'ben-workerv2-%g' 1 $vms`;
+`seq -f 'ben-workerv3-%g' 1 $vms`;
 
 echo "VMs created, sit tight.";
 
@@ -83,6 +83,6 @@ echo "Server removed!";
 
 echo "Killing workers...";
 
-gcloud -q compute instances delete `seq -f 'ben-workerv2-%g' 1 $vms`;
+gcloud -q compute instances delete `seq -f 'ben-workerv3-%g' 1 $vms`;
 
 echo "All done. Thank you!";
