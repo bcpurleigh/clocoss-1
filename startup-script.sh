@@ -1,22 +1,33 @@
 #!/bin/bash
 
+echo "Updating apt-get as sudo to stop errors.";
+# Updating apt-get to remove Git install errors
 sudo apt-get -y update;
-#install git
 
-# Change to what ever version you want here see link to versions below
-sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+# Install Node 8.x
+sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -;
 sudo apt-get install -y nodejs;
 
 echo "Node is installed";
 
-sudo apt-get -y install git;
+node=`node -v`;
+
+echo "Node Version: $node" ;
+
+echo "Node is installed";
+
+echo "Installing Git";
+#install git
+sudo apt-get install git;
+
+echo "Git is installed";
 
 # install worker git code
-git clone https://github.com/portsoc/clocoss-master-worker
-cd clocoss-master-worker
-npm install
+git clone https://github.com/portsoc/clocoss-master-worker;
+cd clocoss-master-worker;
+npm install;
 
-#get metadata through
+# get metadata that was passed through
 workkey=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/key"`
 workserverIP=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ip"`
 
