@@ -5,20 +5,14 @@ echo "Updating apt-get as sudo to stop errors.";
 sudo apt-get -y update;
 
 # Install Node 8.x
-sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -;
+sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs;
-
-echo "Node is installed";
-
-node=`node -v`;
-
-echo "Node Version: $node" ;
 
 echo "Node is installed";
 
 echo "Installing Git";
 #install git
-sudo apt-get install git;
+sudo apt-get install -y git;
 
 echo "Git is installed";
 
@@ -28,10 +22,10 @@ cd clocoss-master-worker;
 npm install;
 
 # get metadata that was passed through
-workkey=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/key"`
-workserverIP=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ip"`
+workkey=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/key"`;
+workserverIP=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ip"`;
 
-echo "$workkey is key and $workserverIP is ip."
+echo "$workkey is key and $workserverIP is ip.";
 
 # run client
 npm run client $workkey $workserverIP:8080
