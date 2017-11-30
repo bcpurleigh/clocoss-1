@@ -1,7 +1,13 @@
 # clocoss-1
 
 This is the task.
+
+Clone the repo to a gcloud enabled cli, then run:
 ```
-This is some code!
-!This is not
+bash startup.sh <<number of vms to create>>
+```
+
+For example:
+```
+bash startup.sh 4
 ```

@@ -11,7 +11,7 @@ echo "apt-get installed.";
 
 echo "Installing Git";
 #install git
-sudo apt-get install git;
+sudo apt-get install -y git;
 
 echo "Git is installed";
 
