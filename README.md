@@ -13,3 +13,4 @@ For example:
 ```
 bash startup.sh 4
 ```
+3. Sit back and wait for all 100 puzzles to complete.
