@@ -62,12 +62,12 @@ echo "Creating Cloud Worker VMs";
 
 # create vms
 gcloud compute instances create  \
---machine-type f1-micro  \
+--machine-type n1-standard-1  \
 --tags http-server,https-server  \
 --metadata key=$key,ip=$externalIP  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
-`seq -f 'ben-workerv3-%g' 1 $vms`;
+`seq -f 'ben-worker-%g' 1 $vms`;
 
 echo "VMs created, sit tight.";
 
@@ -80,7 +80,7 @@ echo "All puzzles completed, shutting down server and deleting the workers.";
 # Delete the worker VMs
 echo "Deleting the workers VMs and their disks";
 
-gcloud -q compute instances delete `seq -f 'ben-workerv3-%g' 1 $vms`;
+gcloud -q compute instances delete `seq -f 'ben-worker-%g' 1 $vms`;
 
 # We're done here
 echo "All done. Thank you!";
