@@ -74,15 +74,13 @@ echo "VMs created, sit tight.";
 echo "Starting master server";
 npm run server $key;
 
+# Tasks completed
 echo "All puzzles completed, shutting down server and deleting the workers.";
 
-echo "Removing server code...";
-cd ..;
-sudo rm clocoss-master-worker -r;
-echo "Server removed!";
-
-echo "Killing workers...";
+# Delete the worker VMs
+echo "Deleting the workers VMs and their disks";
 
 gcloud -q compute instances delete `seq -f 'ben-workerv3-%g' 1 $vms`;
 
+# We're done here
 echo "All done. Thank you!";
