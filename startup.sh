@@ -75,7 +75,7 @@ echo "Starting master server";
 npm run server $key;
 
 # Tasks completed
-echo "All puzzles completed, shutting down server and deleting the workers.";
+echo "All puzzles completed.";
 
 # Delete the worker VMs
 echo "Deleting the workers VMs and their disks";
